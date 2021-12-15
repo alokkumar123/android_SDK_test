@@ -53,13 +53,31 @@ public class KYCPage {
     public void takeSelfie(){
         driver.findElement(By.xpath("//android.view.View[@content-desc='Position your face in the sight']/following-sibling::android.widget.Button")).click();
     }
+
     public void sendPicture(){
         driver.findElementByAccessibilityId("Send Picture").click();
     }
+
     public boolean isCongratulationsMegDisplayed(){
         return driver.findElement(By.xpath("//android.view.View[@content-desc=\"Congratulation ! \"]")).isDisplayed();
     }
     public void clickOnExitButton(){
         driver.findElementByAccessibilityId("Exit !").click();
+    }
+
+    public void takeNewPicture(){
+        driver.findElementByAccessibilityId("Take new picture").click();
+    }
+
+    public void navigateBack(){
+        driver.findElementByAccessibilityId("Back").click();
+    }
+
+    public void discardAllSavedChanges(){
+        driver.findElementByAccessibilityId("Yes").click();
+    }
+
+    public boolean isStartButtonDisplayed(){
+       return driver.findElementByAccessibilityId("Start").isDisplayed();
     }
 }

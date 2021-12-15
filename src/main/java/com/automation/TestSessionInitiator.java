@@ -19,12 +19,11 @@ public class TestSessionInitiator {
         kycPage = new KYCPage(driver);
     }
 
-    public void launchApplication() throws MalformedURLException {
+    public void launchApplication(String deviceName,String udid) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("deviceName", "Pixel 3a API 28");
-        caps.setCapability("udid", "emulator-5554"); //DeviceId from "adb devices" command
+        caps.setCapability("deviceName", deviceName); // device Name
+        caps.setCapability("udid", udid); //DeviceId from "adb devices" command
         caps.setCapability("platformName", "Android");
-        caps.setCapability("platformVersion", "11.0");
         caps.setCapability("skipUnlock", "true");
         caps.setCapability("app", "/Users/olx/Desktop/Android Project/src/main/resources/apk/cleardil_sdk_android_example_1.0.0.apk");
         caps.setCapability("noReset", "false");

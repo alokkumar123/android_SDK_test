@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="KYC">
-    <test name="KYC Verification">
+
+<suite name="KYC Verification" thread-count="6" parallel="tests">
+    <test name="KYC Verification on device 1">
+        <parameter name="deviceName" value="MyDevice"/>
+        <parameter name="udid" value="emulator-5556"/>
         <classes>
-            <class name="com.automation.tests.ValidateKYCTest"/>
+            <class name="com.automation.tests.ValidateKYCTest">
+            <methods>
+                <include name="launchApplication"/>
+                <include name="verifyKYCProcessWithIdentityCard"/>
+                <include name="verifyKYCProcessWithIdentityCardByTakingNewPicture"/>
+                <include name="discardAllKCYProcess"/>
+            </methods>
+            </class>
         </classes>
-    </test> <!-- Test -->
+    </test>
+    <test name="KYC Verification on device 2">
+        <parameter name="deviceName" value="Pixel 3a API 28"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <classes>
+            <class name="com.automation.tests.ValidateKYCTest">
+                <methods>
+                    <include name="launchApplication"/>
+                    <include name="verifyKYCProcessWithIdentityCard"/>
+                    <include name="verifyKYCProcessWithIdentityCardByTakingNewPicture"/>
+                    <include name="discardAllKCYProcess"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite> <!-- Suite -->
